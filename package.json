@@ -1,0 +1,26 @@
+{
+    "name": "dmlang",
+    "displayName": "DreamMaker Language Support",
+    "description": "Basic syntax highlighting support for DreamMaker's language.",
+    "version": "0.0.1",
+    "publisher": "lohikar",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "dm",
+            "aliases": ["DM", "dm"],
+            "extensions": ["dm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "dm",
+            "scopeName": "source.byonddms",
+            "path": "./syntaxes/dm.tmLanguage.json"
+        }]
+    }
+}
