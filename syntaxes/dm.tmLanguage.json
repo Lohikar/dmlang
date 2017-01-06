@@ -2,7 +2,9 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "DM",
 	"scopeName": "source.byonddms",
-	"fileTypes": ["dm"],
+	"fileTypes": [
+		"dm"
+	],
 	"patterns": [
 		{
 			"captures": {
@@ -120,6 +122,28 @@
 				}
 			]
 		},
+		"code-restricted": {
+			"patterns": [
+				{
+					"include": "#constants"
+				},
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#method-call"
+				},
+				{
+					"include": "#builtinTypes"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#block"
+				}
+			]
+		},
 		"comments": {
 			"patterns": [
 				{
@@ -210,10 +234,10 @@
 									"name": "punctuation.definition.string.function.end.source.dm"
 								}
 							},
-							"name": "string.quoted.double.function.source.dm",
+							"name": "variable",
 							"patterns": [
 								{
-									"include": "#constants"
+									"include": "#code-restricted"
 								},
 								{
 									"match": "\\?",
