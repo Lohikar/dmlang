@@ -11,16 +11,42 @@
         "Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "dm",
-            "aliases": ["DM", "dm"],
-            "extensions": ["dm"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "dm",
-            "scopeName": "source.byonddms",
-            "path": "./syntaxes/dm.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "dm",
+                "aliases": [
+                    "DM",
+                    "dm"
+                ],
+                "extensions": [
+                    "dm"
+                ],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "dme",
+                "aliases": [
+                    "DME",
+                    "dme"
+                ],
+                "extensions": [
+                    "dme",
+                    "mdme"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "dm",
+                "scopeName": "source.byonddms",
+                "path": "./syntaxes/dm.tmLanguage.json"
+            },
+            {
+                "language": "dme",
+                "scopeName": "source.byonddme",
+                "path": "./syntaxes/dme.tmLanguage.json"
+            }
+        ]
     }
 }
