@@ -259,8 +259,8 @@
 					"name": "keyword.other.source.dm"
 				},
 				{
-					"match": "[@]\\b(add|remove|cut|new|if|else|while|for|in|do|return|continue|break|switch)\\b",
-					"name": "meta.class.body.source.dm"
+					"match": "new\\b",
+					"name": "keyword.operator.new"
 				}
 			]
 		},
