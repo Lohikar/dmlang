@@ -83,11 +83,15 @@
 				}
 			]
 		},
-		"builtinTypes": {
+		"types": {
 			"patterns": [
 				{
-					"match": "\\b(obj|list|atom|datum|turf|area|sound|var|mob)\\b",
-					"name": "storage.type.source.dm"
+					"match": "\\b(proc|verb|datum|atom(/movable)?|obj|mob|turf|area|savefile|list|client|sound|image|database|matrix|regex|exception)\\b",
+					"name": "storage.type.dm"
+				},
+				{
+					"match": "\\b(as|const|global|set|static|tmp|in)\\b",
+					"name": "storage.modifier.dm"
 				}
 			]
 		},
@@ -103,7 +107,7 @@
 					"include": "#constants"
 				},
 				{
-					"include": "#storage-modifiers"
+					"include": "#types"
 				},
 				{
 					"include": "#keywords"
@@ -113,9 +117,6 @@
 				},
 				{
 					"include": "#method-call"
-				},
-				{
-					"include": "#builtinTypes"
 				},
 				{
 					"include": "#documentation"
@@ -134,7 +135,7 @@
 					"include": "#method-call"
 				},
 				{
-					"include": "#builtinTypes"
+					"include": "#types"
 				},
 				{
 					"include": "#comments"
@@ -186,7 +187,11 @@
 		"constants": {
 			"patterns": [
 				{
-					"match": "\\b(true|false|TRUE|FALSE|null)\\b",
+					"match": "\\b([A-Z_][A-Z_0-9]{5,})\\b",
+					"name": "entity.name.function.preprocessor.source.dm"
+				},
+				{
+					"match": "\\b(true|false|TRUE|FALSE)\\b",
 					"name": "constant.language.source.dm"
 				},
 				{
@@ -201,6 +206,10 @@
 					},
 					"match": "@\"([^\"]|\"\")*\"",
 					"name": "string.quoted.double.literal.source.dm"
+				},
+				{
+					"match": "\\bnull\\b",
+					"name": "constant.language.dm"
 				},
 				{
 					"begin": "\"",
@@ -271,20 +280,28 @@
 		"keywords": {
 			"patterns": [
 				{
-					"match": "\\b(if|else|to|in|while|for|foreach|in|do|return|continue|break|switch|spawn|sleep|del|proc|verb)\\b",
-					"name": "keyword.control.source.dm"
+					"match": "\\b(sleep|spawn|break|continue|do|else|for|goto|if|return|switch|while|catch)\\b",
+					"name": "keyword.control.dm"
 				},
 				{
 					"match": "\\b(src|world|client|mob|user|usr|datum|turf|obj)\\b",
 					"name": "constant.character.escape.source.dm"
 				},
 				{
-					"match": "\\b(var|delegate|fixed|add|remove|set|get|value|global|const)\\b",
+					"match": "\\b(var|delegate|fixed|add|remove|set|get|global|const)\\b",
 					"name": "keyword.other.source.dm"
 				},
 				{
-					"match": "new\\b",
-					"name": "keyword.operator.new"
+					"match": "\\b(del|new)\\b",
+					"name": "keyword.other.dm"
+				},
+				{
+					"match": "\\b(usr|world|src|args)\\b",
+					"name": "variable.language.dm"
+				},
+				{
+					"match": "(\\?|(>|<)(=)?|\\.|:|/(=)?|~|\\+(\\+|=)?|-(-|=)?|\\*(\\*|=)?|%|>>|<<|=(=)?|!(=)?|<>|&|&&|\\^|\\||\\|\\||\\bto\\b|\\bin\\b|\\bstep\\b)",
+					"name": "keyword.operator.dm"
 				}
 			]
 		},
