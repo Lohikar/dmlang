@@ -104,6 +104,9 @@
 					"include": "#comments"
 				},
 				{
+					"include": "#preprocessor"
+				},
+				{
 					"include": "#constants"
 				},
 				{
@@ -111,9 +114,6 @@
 				},
 				{
 					"include": "#keywords"
-				},
-				{
-					"include": "#preprocessor"
 				},
 				{
 					"include": "#method-call"
@@ -288,7 +288,7 @@
 					"name": "constant.character.escape.source.dm"
 				},
 				{
-					"match": "\\b(var|delegate|fixed|add|remove|set|get|global|const)\\b",
+					"match": "\\b(var|set|global|const)\\b",
 					"name": "keyword.other.source.dm"
 				},
 				{
@@ -372,7 +372,7 @@
 							]
 						},
 						{
-							"begin": ":\\s*(this|base)\\s*\\(",
+							"begin": ":\\s*(src|..|.)\\s*\\(",
 							"beginCaptures": {
 								"1": {
 									"name": "constant.language.source.dm"
@@ -472,11 +472,11 @@
 							"name": "entity.name.function.preprocessor.source.dm"
 						}
 					},
-					"match": "^\\s*#\\s*(define|undef|if|elif|ifndef)\\b\\s*(\\S*)",
+					"match": "^\\s*#(define|undef|if|else|elif|ifndef|endif)\\b\\s*(\\S*)",
 					"name": "meta.preprocessor.source.dm"
 				},
 				{
-					"match": "^\\s*#\\s*(if|else|elif|endif|define|undef|warn|error)\\b\\s*([^/]+)\\s",
+					"match": "^\\s*#(if|else|elif|endif|define|undef|warn|error)\\b\\s*([^/]+)\\s",
 					"name": "meta.preprocessor.source.dm"
 				}
 			]
