@@ -187,6 +187,51 @@
 		"constants": {
 			"patterns": [
 				{
+					"name": "string.quoted.triple",
+					"begin": "{\"",
+					"end": "\"}",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.source.dm"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.source.dm"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "\\[",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.string.function.begin.source.dm"
+								}
+							},
+							"end": "\\]",
+							"endCaptures": {
+								"0": {
+									"name": "punctuation.definition.string.function.end.source.dm"
+								}
+							},
+							"name": "variable",
+							"patterns": [
+								{
+									"include": "#code-restricted"
+								},
+								{
+									"match": "\\?",
+									"name": "constant.character.function.if"
+								},
+								{
+									"match": "\\:",
+									"name": "constant.character.function.else"
+								}
+							]
+						}
+					]
+				},
+				{
 					"match": "\\b([A-Z_][A-Z_0-9]{5,})\\b",
 					"name": "entity.name.function.preprocessor.source.dm"
 				},
@@ -227,7 +272,7 @@
 					"name": "string.quoted.double.source.dm",
 					"patterns": [
 						{
-							"match": "\\\\.",
+							"match": "\\\\(:?\\\\|\\[||\\]|<|>|n|ref|[Tt]he|[Aa]n?|[Ss]?[Hh]e|(her|him)(self)?|[Hh]is|[Hh]ers|th|s|icon|[Rr]oman|...|\")",
 							"name": "constant.character.escape.source.dm"
 						},
 						{
@@ -284,7 +329,7 @@
 					"name": "keyword.control.dm"
 				},
 				{
-					"match": "\\b(src|world|client|mob|user|usr|datum|turf|obj)\\b",
+					"match": "\\b(src|world|usr|args|vars)\\b",
 					"name": "constant.character.escape.source.dm"
 				},
 				{
